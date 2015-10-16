@@ -8,7 +8,7 @@ If you intend to create DigitalOcean snapshots, copy `packer/secrets.json.dist` 
 If you intend to create Docker images, make sure that you have Docker installed locally or spin up a [Docker Machine](https://www.docker.com/docker-machine).
 
 ###DigitalOcean Snapshots
-From the project root directory:
+Wrapper scripts are included to build master and slave snapshots on DigitalOcean. To build the snapshots, run the following from the project root directory:
 ####Mesos master
 ```
 packer/build/master.sh
