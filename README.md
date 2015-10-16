@@ -17,7 +17,7 @@ packer/build/master.sh
 ```
 packer/build/slave.sh
 ```
-Note that this script will write out the created snapshot ids to `.mesos-master.snapshot_id` or `.mesos-slave.snapshot_id` to be fed into Terraform later. For this reason, Packer will be run with the --machine-readable flag.
+Note that this script will write out the created snapshot ids to `.mesos-master.snapshot_id` or `.mesos-slave.snapshot_id` to be fed into Terraform later. For this reason, Packer will be run with the `--machine-readable` flag.
 
 ###Docker Images
 ####Mesos master
