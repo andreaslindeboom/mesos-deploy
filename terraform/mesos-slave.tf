@@ -3,5 +3,5 @@ resource "digitalocean_droplet" "mesos-slave" {
     name = "mesos-slave"
     region = "ams3"
     size = "512mb"
-    ssh_keys = ["${digitalocean_ssh_key.mesos-master.id}"]
+    ssh_keys = ["${digitalocean_ssh_key.mesos.id}"]
 }
