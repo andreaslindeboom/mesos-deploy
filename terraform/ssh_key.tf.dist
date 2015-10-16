@@ -1,0 +1,6 @@
+variable "ssh_key" {
+    default = {
+        name = "The name of your SSH key here"
+        path = "~/.ssh/id_rsa.pub"
+    }
+}
