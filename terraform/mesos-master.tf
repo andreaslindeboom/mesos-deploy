@@ -8,7 +8,7 @@ resource "digitalocean_ssh_key" "mesos-master" {
 }
 
 resource "digitalocean_droplet" "mesos-master" {
-    image = "${var.digitalocean.snapshot_id}"
+    image = "${var.digitalocean.mesos-master.snapshot_id}"
     name = "mesos-master"
     region = "ams3"
     size = "512mb"
