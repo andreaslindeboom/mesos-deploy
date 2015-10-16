@@ -1,11 +1,12 @@
 #!/bin/bash
-# Setup
-apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF
-DISTRO=$(lsb_release -is | tr '[:upper:]' '[:lower:]')
-CODENAME=$(lsb_release -cs)
 
-# Add the repository
-echo "deb http://repos.mesosphere.com/${DISTRO} ${CODENAME} main" | \
+apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF
+
+echo "deb http://repos.mesosphere.com/ubuntu trusty main" | \
   tee /etc/apt/sources.list.d/mesosphere.list
+
 apt-get -y update
 apt-get -y install openjdk-7-jre-headless mesos
+
+# the Mesos package starts a slave process on boot by default, this disables it
+echo manual | tee /etc/init/mesos-slave.override
