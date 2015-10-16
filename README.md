@@ -37,10 +37,13 @@ Copy `terraform/secrets.tf.dist` to `terraform/secrets.tf` and enter your Digita
 Also, copy `terraform/ssh_key.tf.dist` to `terraform/ssh_key.tf` and enter a unique name for your SSH key.
 The same SSH key can not already be present on your DigitalOcean account unless it is being managed by Terraform, or provisioning will fail.
 
-###Provision
-NOTE: this provisions a single Mesos master node and a single slave node, but they are not connected yet.
+###Preview or execute provisioning
+Wrapper scripts are provided for previewing (‘plan’) and executing (‘apply’) the provisioning.
 
-From the project root directory, run `terraform/provision.sh`.
+To preview what Terraform would do, run `terraform/plan.sh` from the project root.
+
+To provision the nodes, run `terraform/apply.sh` from the project root.
+NOTE: this provisions a single Mesos master node and a single slave node, but they are not connected yet.
 
 Note that valid DigitalOcean snapshot ids from the Packer build step are expected to be present in `.mesos-master.snapshot_id`/`.mesos-slave.snapshot_id`.
 
