@@ -1,2 +1,3 @@
 secrets.json
 packer_cache/
+*.snapshot_id
