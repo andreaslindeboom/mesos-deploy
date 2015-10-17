@@ -34,7 +34,7 @@ Note that running these containers will not automatically start Mesos.
 ###Preparations
 Copy `terraform/secrets.tf.dist` to `terraform/secrets.tf` and enter your DigitalOcean access token.
 
-Also, copy `terraform/ssh_key.tf.dist` to `terraform/ssh_key.tf` and enter a unique name for your SSH key.
+Also, copy `terraform/ssh_key.tf.dist` to `terraform/ssh_key.tf` and enter a unique name for your SSH key, as well as the paths to your private and public key. (the private key will only be used by SSH for remote provisioning)
 The same SSH key can not already be present on your DigitalOcean account unless it is being managed by Terraform, or provisioning will fail.
 
 ###Preview or execute provisioning
@@ -43,7 +43,7 @@ Wrapper scripts are provided for previewing (‘plan’) and executing (‘apply
 To preview what Terraform would do, run `terraform/plan.sh` from the project root.
 
 To provision the nodes, run `terraform/apply.sh` from the project root.
-NOTE: this provisions a single Mesos master node and a single slave node, but they are not connected yet.
+NOTE: this provisions only a single Mesos master node with a single slave node connected to it.
 
 Note that valid DigitalOcean snapshot ids from the Packer build step are expected to be present in `.mesos-master.snapshot_id`/`.mesos-slave.snapshot_id`.
 
