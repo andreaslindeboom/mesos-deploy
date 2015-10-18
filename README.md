@@ -37,6 +37,8 @@ Copy `terraform/secrets.tf.dist` to `terraform/secrets.tf` and enter your Digita
 Also, copy `terraform/ssh_key.tf.dist` to `terraform/ssh_key.tf` and enter a unique name for your SSH key, as well as the paths to your private and public key. (the private key will only be used by SSH for remote provisioning)
 The same SSH key can not already be present on your DigitalOcean account unless it is being managed by Terraform, or provisioning will fail.
 
+Set the amount of desired Mesos slaves in `terraform/config.tf`.
+
 ###Preview or execute provisioning
 Wrapper scripts are provided for previewing (‘plan’) and executing (‘apply’) the provisioning.
 
