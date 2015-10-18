@@ -11,7 +11,7 @@ resource "digitalocean_droplet" "mesos-slave" {
             "echo ${self.ipv4_address_private} | tee /etc/mesos-slave/ip",
             "cp /etc/mesos-slave/ip /etc/mesos-slave/hostname",
             "sed -i 's/localhost/${digitalocean_droplet.mesos-master.ipv4_address_private}/' /etc/mesos/zk",
-            "service mesos-slave restart"
+            "systemctl restart mesos-slave"
         ]
         connection {
             key_file = "${var.ssh_key.private_key_path}"
