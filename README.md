@@ -37,17 +37,14 @@ Copy `terraform/secrets.tf.dist` to `terraform/secrets.tf` and enter your Digita
 Also, copy `terraform/ssh_key.tf.dist` to `terraform/ssh_key.tf` and enter a unique name for your SSH key, as well as the paths to your private and public key. (the private key will only be used by SSH for remote provisioning)
 The same SSH key can not already be present on your DigitalOcean account unless it is being managed by Terraform, or provisioning will fail.
 
-Set the amount of desired Mesos slaves in `terraform/config.tf`.
-
 ###Preview or execute provisioning
-Wrapper scripts are provided for previewing (‘plan’) and executing (‘apply’) the provisioning.
+To preview what Terraform would do, run `terraform plan` from the `terraform` directory.
 
-To preview what Terraform would do, run `terraform/plan.sh` from the project root.
+To provision the nodes, run `terraform apply` from the `terraform` directory.
 
-To provision the nodes, run `terraform/apply.sh` from the project root.
-NOTE: this provisions only a single Mesos master node with a single slave node connected to it.
+This will provision a single master and a single slave. To preview/provision multiple slaves, pass a number of slaves to Terraform through the `slaves` variable: `terraform plan/apply -var slaves=2`.
 
-Note that valid DigitalOcean snapshot ids from the Packer build step are expected to be present in `.mesos-master.snapshot_id`/`.mesos-slave.snapshot_id`.
+Note that valid DigitalOcean snapshot ids from the Packer build step are expected to be present in the following files in the project root: `.mesos-master.snapshot_id` and `.mesos-slave.snapshot_id`.
 
 After provisioning, run `terraform show` to get the IP addresses of the newly created instances.
 

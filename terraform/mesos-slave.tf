@@ -1,5 +1,5 @@
 resource "digitalocean_droplet" "mesos-slave" {
-    image = "${var.digitalocean.mesos-slave.snapshot_id}"
+    image = "${file("../.mesos-slave.snapshot_id")}"
     name = "mesos-slave"
     count = "${var.slaves}"
     region = "ams3"
