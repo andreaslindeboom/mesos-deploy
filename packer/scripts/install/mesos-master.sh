@@ -2,11 +2,11 @@
 
 apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF
 
-echo "deb http://repos.mesosphere.com/ubuntu trusty main" | \
+echo "deb http://repos.mesosphere.com/ubuntu vivid main" | \
   tee /etc/apt/sources.list.d/mesosphere.list
 
 apt-get -y update
-apt-get -y install openjdk-7-jre-headless mesos
+apt-get -y install mesos
 
 # the Mesos package starts both a master and a slave process on boot by default, this disables the slave
-echo manual | tee /etc/init/mesos-slave.override
+systemctl disable mesos-slave

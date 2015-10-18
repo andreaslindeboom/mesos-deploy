@@ -5,12 +5,12 @@
       "droplet_name": "mesos-master-builder",
       "snapshot_name": "mesos-master-{{timestamp}}",
       "api_token": "{{user `digitalocean.access_token`}}",
-      "image": "ubuntu-14-04-x64",
+      "image": "ubuntu-15-04-x64",
       "region": "ams3",
       "size": "512mb"
     }, {
       "type": "docker",
-      "image": "ubuntu:14.04",
+      "image": "ubuntu:15.04",
       "export_path": "mesos-master"
     }
   ],
